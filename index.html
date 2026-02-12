@@ -3,211 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Corporation | Excellence Defined</title>
+    <title>IK Tech | Premium Gadgets</title>
     <style>
-        /* General Styles */
+        /* Base Styles */
+        :root {
+            --primary: #0071e3; /* Tech blue */
+            --dark: #1d1d1f;
+            --light: #f5f5f7;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
-            line-height: 1.6;
-            color: #333;
+            color: var(--dark);
+            background-color: #fff;
             scroll-behavior: smooth;
         }
 
         /* Navigation */
         nav {
-            background: #2c3e50;
-            color: #fff;
-            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-sizing: border-box;
+            border-bottom: 1px solid #ddd;
+            z-index: 1000;
         }
 
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-        }
+        nav ul { list-style: none; display: flex; margin: 0; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: var(--dark); font-weight: 500; }
 
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #3498db;
-        }
-
-        /* Hero Banner */
+        /* Banner */
         .banner {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
+            height: 70vh;
+            background: var(--dark);
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
             text-align: center;
-            margin-top: 60px;
+            padding: 0 20px;
+            margin-top: 50px;
         }
 
-        .banner h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
+        .banner h1 { font-size: 4rem; margin: 0; }
+        .banner p { font-size: 1.2rem; color: #86868b; }
 
-        /* Section Styling */
-        section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
+        /* Sections */
+        section { padding: 80px 10%; }
+        h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
 
-        h2 {
-            text-align: center;
-            border-bottom: 3px solid #3498db;
-            display: inline-block;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        /* Services Grid */
-        .services-grid {
+        /* Gadget Grid */
+        .gadget-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .service-card {
+        .product-card {
+            background: var(--light);
+            border-radius: 15px;
             padding: 20px;
-            background: #f4f4f4;
-            border-radius: 8px;
-            transition: transform 0.3s;
+            text-align: center;
+            transition: 0.3s;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            background: #e8e8e8;
-        }
+        .product-card:hover { transform: scale(1.03); }
+        .product-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+        .price { font-size: 1.2rem; font-weight: bold; color: var(--primary); }
 
         /* Contact Form */
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 500px;
-            margin: auto;
+        form { max-width: 600px; margin: 0 auto; display: grid; gap: 15px; }
+        input, textarea { padding: 12px; border: 1px solid #ccc; border-radius: 8px; }
+        button { 
+            padding: 15px; 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: bold;
         }
 
-        input, textarea {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px;
-            background: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        button:hover {
-            background: #34495e;
-        }
-
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Elite Corp</div>
+        <div class="logo">IK TECH</div>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#shop">Shop</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <header class="banner">
-        <h1>Welcome to Elite Corporation</h1>
-        <p>Driving Innovation. Delivering Excellence.</p>
+        <h1>Welcome to IK Tech</h1>
+        <p>The latest in mobile and computing technology.</p>
     </header>
 
-    <section id="about" class="container">
-        <h2>About Us</h2>
-        <p>Elite Corporation is a global leader in providing top-tier corporate solutions. With over a decade of experience, we pride ourselves on our integrity, professionalism, and commitment to our clients' success.</p>
+    <section id="about">
+        <h2>About IK Tech</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto;">
+            We are your one-stop shop for high-end smartphones, laptops, and smart accessories. 
+            At IK Tech, we believe in providing original gadgets with full warranties and expert support.
+        </p>
     </section>
 
-    <hr>
-
-    <section id="services" class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Consulting</h3>
-                <p>Strategic planning to help your business scale efficiently.</p>
+    <section id="shop" style="background: #fff;">
+        <h2>Featured Gadgets</h2>
+        <div class="gadget-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1592890288564-76628a30a657?auto=format&fit=crop&w=400&q=80" alt="Smartphone">
+                <h3>Elite Smartphone X</h3>
+                <p>OLED Display, 5G Enabled</p>
+                <p class="price">$999.00</p>
             </div>
-            <div class="service-card">
-                <h3>Technology</h3>
-                <p>Cutting-edge IT infrastructure and software development.</p>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Laptop">
+                <h3>ProBook 14"</h3>
+                <p>16GB RAM, 512GB SSD</p>
+                <p class="price">$1,299.00</p>
             </div>
-            <div class="service-card">
-                <h3>Finance</h3>
-                <p>Expert financial management and investment advisory.</p>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Headphones">
+                <h3>Noise Cancel Headphones</h3>
+                <p>Wireless, 40hr Battery</p>
+                <p class="price">$299.00</p>
             </div>
         </div>
     </section>
 
-    <hr>
+    <section id="services" style="background: var(--light);">
+        <h2>Our Services</h2>
+        <div class="gadget-grid">
+            <div style="text-align: center;">
+                <h3>Fast Delivery</h3>
+                <p>Same-day delivery within the city.</p>
+            </div>
+            <div style="text-align: center;">
+                <h3>Device Repair</h3>
+                <p>Certified screen and battery replacements.</p>
+            </div>
+            <div style="text-align: center;">
+                <h3>Trade-In</h3>
+                <p>Exchange your old device for credit.</p>
+            </div>
+        </div>
+    </section>
 
-    <section id="contact" class="container">
+    <section id="contact">
         <h2>Contact Us</h2>
-        <p>Have a question? We'd love to hear from you.</p>
         <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea rows="5" placeholder="Which gadget are you looking for?" required></textarea>
+            <button type="submit">Check Availability</button>
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2026 Elite Corporation. All rights reserved.</p>
+        <p>&copy; 2026 IK Tech Gadgets. All rights reserved.</p>
     </footer>
 
 </body>
